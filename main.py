@@ -1,7 +1,7 @@
 import streamlit as st
 import tensorflow as tf
 import numpy as np
-import matplotlib
+import time
 
 
 # TensorFlow Model Prediction
@@ -66,11 +66,13 @@ elif app_mode == "Disease Recognition":
     test_image = st.file_uploader("Choose an Image:")
     if st.button("Show Image") and test_image is not None:
         st.image(test_image, use_column_width=True)
-    
+
     # Predict button
     if st.button("Predict") and test_image is not None:
-        st.snow()
-        st.write("Our Prediction")
+        with st.spinner('Tunggu sebentar yaa :3'):
+            time.sleep(5)
+            st.toast('Prediction Done!', icon='🎉')
+            st.write("Hasil Prediksi")
         result_index = model_prediction(test_image)
         
         # Reading Labels
@@ -111,4 +113,4 @@ elif app_mode == "Disease Recognition":
                        'Tomato Tomato mosaic virus',
                        'Tomato healthy']
         
-        st.success(f"Model is predicting it's a {class_names[result_index]}")
+        st.success(f"Model memprediksikan jika tanaman ini adalah: {class_names[result_index]}")
