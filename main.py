@@ -1,6 +1,7 @@
 import streamlit as st
 import tensorflow as tf
 import numpy as np
+import matplotlib
 
 
 # TensorFlow Model Prediction
@@ -41,8 +42,6 @@ if app_mode == "Home":
     ### Get Started
     Klik halaman klasifikasi Penyakit daun tanaman di sidebar untuk mengunggah gambar dan cek Sistem Klasifikasi Penyakit Tanaman anda!
 
-    ### About Us
-    Learn more about the project, our team, and our goals on the **About** page.
     """)
 
 # About Project
