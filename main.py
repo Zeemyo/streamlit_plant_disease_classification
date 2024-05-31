@@ -3,7 +3,6 @@ import tensorflow as tf
 import numpy as np
 import time
 
-
 # TensorFlow Model Prediction
 def model_prediction(test_image):
     model = tf.keras.models.load_model("trained_plant_disease_model_new.h5")
@@ -11,8 +10,9 @@ def model_prediction(test_image):
     input_arr = tf.keras.preprocessing.image.img_to_array(image)
     input_arr = np.array([input_arr])  # Convert single image to batch
     predictions = model.predict(input_arr)
-    return np.argmax(predictions)  # Return index of max element
-
+    max_prob = np.max(predictions)  # Get the maximum probability
+    print(max_prob)
+    return np.argmax(predictions), max_prob  # Return index of max element and its probability
 
 # Sidebar
 st.sidebar.title("Dashboard")
@@ -24,7 +24,6 @@ if app_mode == "Home":
     image_path = "home_page.jpg"
     st.image(image_path, use_column_width=True)
     st.markdown("""
-    
     Selamat datang di Sistem Recognition Penyakit Tanaman! 🌿🔍
     
     Misi kami adalah membantu mengidentifikasi penyakit tanaman secara efisien. Unggah gambar tanaman, dan sistem kami akan menganalisisnya untuk mendeteksi tanda-tanda penyakit. Bersama-sama, mari lindungi tanaman kita dan pastikan panen yang lebih sehat!
@@ -41,7 +40,6 @@ if app_mode == "Home":
 
     ### Get Started
     Klik halaman klasifikasi Penyakit daun tanaman di sidebar untuk mengunggah gambar dan cek Sistem Klasifikasi Penyakit Tanaman anda!
-
     """)
 
 # About Project
@@ -73,7 +71,10 @@ elif app_mode == "Disease Recognition":
             time.sleep(5)
             st.toast('Prediction Done!', icon='🎉')
             st.write("Hasil Prediksi")
-        result_index = model_prediction(test_image)
+        result_index, max_prob = model_prediction(test_image)
+        
+        # Menghitung nilai persentase dari probabilitas
+        max_prob_percentage = max_prob * 100/1
         
         # Reading Labels
         class_names = ['Apple Apple scab', 
@@ -113,4 +114,4 @@ elif app_mode == "Disease Recognition":
                        'Tomato Tomato mosaic virus',
                        'Tomato healthy']
         
-        st.success(f"Model memprediksikan jika tanaman ini adalah: {class_names[result_index]}")
+        st.success(f"Model memprediksikan jika tanaman ini adalah: {class_names[result_index]} dengan hasil akurasi: {max_prob_percentage}%")
