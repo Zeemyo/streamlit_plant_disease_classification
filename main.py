@@ -5,7 +5,7 @@ import time
 
 # TensorFlow Model Prediction
 def model_prediction(test_image):
-    model = tf.keras.models.load_model("trained_plant_disease_model_new.h5")
+    model = tf.keras.models.load_model("trained_plant_disease_model_paddy_added_new.h5")
     image = tf.keras.preprocessing.image.load_img(test_image, target_size=(128, 128))
     input_arr = tf.keras.preprocessing.image.img_to_array(image)
     input_arr = np.array([input_arr])  # Convert single image to batch
@@ -99,6 +99,10 @@ elif app_mode == "Disease Recognition":
                        'Potato Early blight', 
                        'Potato Late blight', 'Potato healthy', 
                        'Raspberry healthy', 
+                       'Rice BrownSpot', 
+                       'Rice Healthy', 
+                       'Rice Hispa', 
+                       'Rice LeafBlast',
                        'Soybean healthy', 
                        'Squash Powdery mildew', 
                        'Strawberry Leaf scorch', 
