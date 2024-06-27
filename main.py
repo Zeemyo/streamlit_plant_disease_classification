@@ -53,7 +53,7 @@ elif app_mode == "About":
     dengan mempertahankan struktur direktori. Sebuah direktori baru yang berisi 33 gambar uji dibuat kemudian untuk tujuan prediksi.
     Kemudian digabungkan dengan dataset Rice Leaf Images dari Kaggle https://www.kaggle.com/datasets/nizorogbezuode/rice-leaf-images
     yang dimana dataset ini terdiri dari 4 class baru yang di gabungkan dengan dataset New Plant village Dataset. yang total gambar
-    menjadi 90889 images dan 42 class.
+    menjadi 90889 images dan 42 class dan total gambar testing menjadi 39 buah.
 
     #### Content
     1. Train (72714 images)
