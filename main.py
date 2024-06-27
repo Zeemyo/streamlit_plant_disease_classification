@@ -51,11 +51,15 @@ elif app_mode == "About":
     Dataset ini terdiri dari sekitar 87 ribu gambar RGB dari daun tanaman yang sehat dan yang terkena penyakit, 
     yang dikategorikan ke dalam 38 kelas yang berbeda. Total dataset dibagi menjadi rasio 80/20 untuk set pelatihan dan validasi 
     dengan mempertahankan struktur direktori. Sebuah direktori baru yang berisi 33 gambar uji dibuat kemudian untuk tujuan prediksi.
+    Kemudian digabungkan dengan dataset Rice Leaf Images dari Kaggle https://www.kaggle.com/datasets/nizorogbezuode/rice-leaf-images
+    yang dimana dataset ini terdiri dari 4 class baru yang di gabungkan dengan dataset New Plant village Dataset. yang total gambar
+    menjadi 90889 images dan 42 class.
 
     #### Content
-    1. Train (70295 images)
-    2. Test (33 images)
-    3. Validation (17572 images)
+    1. Train (72714 images)
+    2. Test (39 images)
+    3. Validation (18175 images)
+    4. Total Class (42 Class)
     """)
 
 # Prediction Page
