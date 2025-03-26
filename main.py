@@ -67,7 +67,7 @@ elif app_mode == "Disease Recognition":
     st.header("Disease Recognition")
     test_image = st.file_uploader("Choose an Image:")
     if st.button("Show Image") and test_image is not None:
-        st.image(test_image, use_column_width=True)
+        st.image(test_image, use_container_width=True)
 
     # Predict button
     if st.button("Predict") and test_image is not None:
